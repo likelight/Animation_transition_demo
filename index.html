@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <title>D</title>
+    <style>
+        body{
+            background: #e0e0e0;
+        }
+        .transform{
+            width: 100px;
+            height: 200px;
+            -webkit-transition:all 1s linear;
+            -webkit-animation:mymove 5s infinite;
+            position: relative;
+            background: blue;
+            text-align: center;
+        }
+        .transform:hover{
+            width: 300px;
+            height: 400px;
+        }
+        @-webkit-keyframes  mymove{
+             from{left:0px;}
+             to{left: 200px;}
+        }
+        .container{left: 50%;top:45px;position: absolute;height: 160px;height: 160px;margin-left: -85px;}
+        .circle1{
+            width: 160px;
+            height: 160px;
+            border-radius: 80px;
+            background:rgba(255,255,255,0.3);
+            position: absolute;
+            top:50%;
+            left: 50%;
+        }
+
+        .birate{
+            -webkit-animation:indexcircle 2s linear infinite;
+        }
+
+        .circle2{
+            width: 120px;height:120px;
+            border-radius:60px;
+            background:rgba(255,255,255,0.5);
+            position: absolute;
+            margin: 20px 0 0 20px;
+            top:50%;
+            left: 50%;
+        }
+
+        .circle3{
+            width: 100px;height: 100px;
+            border-radius: 50px;
+            background: rgba(240,240,240,0.9);
+            position: absolute;
+            margin: 30px 0 0 30px;
+            top:50%;
+            left:50%;
+
+        }
+
+        .circle3:hover{
+            -webkit-animation:change3d 2s linear infinite;
+        }
+
+        @-webkit-keyframes indexcircle{
+            0%{
+               opacity: 0;
+               -webkit-transform:scale(1.1)
+            }
+            50% {
+                opacity: 1;
+                -webkit-transform:scale(1.4)
+            }
+            100% {
+                opacity: 0;
+                -webkit-transform:scale(1.1)
+            }
+        }
+
+        @-webkit-keyframes  change3d{
+            0% {
+                -webkit-transform: scale3d(1,1,1);
+                transform: scale3d(1,1,1)
+            }
+
+            30% {
+                -webkit-transform: scale3d(1.25,.75,1);
+                transform: scale3d(1.25,.75,1)
+            }
+
+            40% {
+                -webkit-transform: scale3d(0.75,1.25,1);
+                transform: scale3d(0.75,1.25,1)
+            }
+
+            50% {
+                -webkit-transform: scale3d(1.15,.85,1);
+                transform: scale3d(1.15,.85,1)
+            }
+
+            65% {
+                -webkit-transform: scale3d(.95,1.05,1);
+                transform: scale3d(.95,1.05,1)
+            }
+
+            75% {
+                -webkit-transform: scale3d(1.05,.95,1);
+                transform: scale3d(1.05,.95,1)
+            }
+
+            100% {
+                -webkit-transform: scale3d(1,1,1);
+                transform: scale3d(1,1,1)
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+</div>
+<script src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function(){
+        $(".circle3").on("mouseover",function(){
+            $(".circle1").addClass("birate");
+            $(".circle2").addClass("birate");
+        });
+        $(".circle3").on("mouseout",function(){
+            $(".circle1").removeClass("birate");
+            $(".circle2").removeClass("birate");
+        });
+
+    });
+</script>
+</body>
+</html>
